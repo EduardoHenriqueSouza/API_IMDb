@@ -1,18 +1,21 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-import SearchPage from "./pages/SearchPage";
-import DetailsPage from "./pages/DetailsPage";
+import Home from "./pages/Home";
+import MovieDetails from "./pages/MovieDetails";
+import Favorites from "./pages/Favorites";
+import Navbar from "./components/Navbar";
 
-export default function App() {
+const App = () => {
   return (
     <Router>
+      <Navbar /> {/* Agora o Link dentro da Navbar funciona */}
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<SearchPage />} />
-          <Route path="/movie/:id" element={<DetailsPage />} />
-          <Route path="/favoritos" element={<h1>Favoritos em breve...</h1>} />
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/movie/:id" element={<MovieDetails />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </Router>
   );
-}
+};
+
+export default App;

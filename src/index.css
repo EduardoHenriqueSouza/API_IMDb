@@ -1,8 +1,212 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Reset simples */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* Agora você pode adicionar customizações */
 body {
-  @apply font-sans bg-gray-100 text-gray-800;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Container principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto; /* centraliza horizontalmente */
+    padding: 0 2rem; /* espaço interno nas laterais */
+}
+
+@media (min-width: 1200px) {
+    .container {
+        padding: 0 4rem;
+    }
+}
+
+/* Formulário de busca */
+form {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+input[type="text"] {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem 0 0 0.5rem;
+    border: none;
+    width: 300px;
+    outline: none;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    border: none;
+    background-color: #1f80e0;
+    color: white;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #1665b0;
+}
+
+/* Grid de filmes */
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem; /* espaçamento maior entre os filmes */
+    padding: 2rem; /* espaço interno do container */
+    justify-items: center; /* centraliza os cards */
+}
+
+/* Movie Card */
+.movie-card {
+    background-color: #1e1e1e;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.movie-card img {
+    width: 100%;
+    border-bottom: 1px solid #333;
+}
+
+.movie-card h3 {
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.movie-card div {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem;
+}
+
+.movie-card button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 0.25rem;
+}
+
+/* Movie Details */
+.movie-details {
+    padding: 2rem;
+    color: white;
+}
+
+.movie-details .top-bar {
+    margin-bottom: 1rem;
+}
+
+.movie-details .back-button {
+    background-color: #1f80e0;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.movie-details .back-button:hover {
+    background-color: #1665b0;
+}
+
+.movie-details .details-container {
+    display: flex;
+    flex-wrap: wrap; /* garante responsividade */
+    gap: 2rem;
+    justify-content: center;
+}
+
+.movie-details img {
+    border-radius: 0.5rem;
+    max-width: 300px;
+}
+
+.movie-details .info {
+    max-width: 600px;
+}
+
+.movie-details h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #1f80e0;
+}
+
+.movie-details p {
+    margin: 0.5rem 0;
+    line-height: 1.4;
+}
+
+.movie-details .favorite-button {
+    margin-top: 1rem;
+    background-color: #e03b3b;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.movie-details .favorite-button:hover {
+    background-color: #b02a2a;
+}
+
+/* Títulos gerais */
+h2 {
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    color: #1f80e0;
+}
+
+/* Paginação */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.pagination-container button {
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #1f80e0;
+    color: white;
+    border: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.pagination-container button:hover {
+    background-color: #1665b0;
+}
+
+.pagination-container span {
+    font-weight: bold;
 }
