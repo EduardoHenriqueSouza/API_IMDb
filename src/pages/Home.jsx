@@ -11,9 +11,10 @@ const Home = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
   const { addFavorite, removeFavorite, isFavorite } = useFavorites();
 
-  // ✅ Recupera a última busca ao montar o componente
+  // Recupera a última busca ao montar o componente
   useEffect(() => {
     const storedQuery = localStorage.getItem("lastQuery");
     const storedResults = localStorage.getItem("lastResults");
@@ -26,29 +27,52 @@ const Home = () => {
     }
   }, []);
 
+  // Reset da Home quando localStorage for limpo
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const storedQuery = localStorage.getItem("lastQuery");
+      const storedResults = localStorage.getItem("lastResults");
+
+      if (!storedQuery && !storedResults) {
+        setQuery("");
+        setMovies([]);
+        setPage(1);
+        setTotalPages(1);
+        setError("");
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
+
+  // Busca de filmes
   const handleSearch = async (e) => {
     e.preventDefault();
     if (!query) return;
 
     setLoading(true);
     setError("");
+
     try {
       const data = await searchMovies(query, 1);
       setMovies(data.results);
       setTotalPages(data.total_pages);
       setPage(1);
 
-      // ✅ Salva a busca e resultados no localStorage
+      // Salva a busca no localStorage
       localStorage.setItem("lastQuery", query);
       localStorage.setItem("lastResults", JSON.stringify(data.results));
       localStorage.setItem("lastPage", "1");
     } catch (err) {
-      setError(err.message);
+      console.error(err);
+      setError("Erro ao buscar filmes. Tente novamente.");
     } finally {
       setLoading(false);
     }
   };
 
+  // Troca de página
   const handlePageChange = async (newPage) => {
     setLoading(true);
     try {
@@ -56,16 +80,18 @@ const Home = () => {
       setMovies(data.results);
       setPage(newPage);
 
-      // ✅ Atualiza os resultados no localStorage ao mudar de página
+      // Atualiza localStorage
       localStorage.setItem("lastResults", JSON.stringify(data.results));
       localStorage.setItem("lastPage", newPage.toString());
     } catch (err) {
-      setError(err.message);
+      console.error(err);
+      setError("Erro ao carregar página. Tente novamente.");
     } finally {
       setLoading(false);
     }
   };
 
+  // Favoritos
   const toggleFavorite = (movie) => {
     isFavorite(movie.id) ? removeFavorite(movie.id) : addFavorite(movie);
   };
@@ -83,7 +109,7 @@ const Home = () => {
       </form>
 
       {loading && <p>Carregando...</p>}
-      {error && <p>{error}</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
 
       <div className="movies-grid">
         {movies.map((movie) => (

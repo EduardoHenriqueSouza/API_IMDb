@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getMovieDetails } from "../api/tmdb";
 import { useFavorites } from "../hooks/useFavorites";
 
-const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500"; // Base para os posters
+const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -46,7 +46,6 @@ const MovieDetails = () => {
 
   return (
     <div className="movie-details">
-      {/* Botão de voltar */}
       <div className="top-bar">
         <button onClick={handleGoBack} className="back-button">← Voltar</button>
       </div>

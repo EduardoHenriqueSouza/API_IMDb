@@ -1,5 +1,5 @@
 
-const API_KEY = "a3161560fdd2b2a32f34edb0d5357daa"; // Pegue em https://www.themoviedb.org/
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 
 export const searchMovies = async (query, page = 1) => {

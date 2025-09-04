@@ -1,12 +1,53 @@
-# React + Vite
+# 🎬 Movie Explorer - Desafio React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma aplicação em **React** que consome a [API do TMDB](https://www.themoviedb.org/) para permitir que usuários busquem filmes, vejam detalhes e montem uma lista de favoritos.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Funcionalidades
 
-## Expanding the ESLint configuration
+- **🔍 Página de Busca**
+  - Campo de texto para pesquisar filmes.
+  - Exibição de resultados com pôster, título, ano e botão para detalhes.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **📑 Paginação**
+  - Navegação entre páginas de resultados.
+
+- **ℹ️ Página de Detalhes**
+  - Exibe informações completas do filme:
+    - Diretor
+    - Elenco
+    - Sinopse
+    - Avaliação
+
+- **⭐ Lista de Favoritos**
+  - Adicionar/remover filmes da lista.
+  - Persistência no **localStorage**.
+
+- **⚡ Tratamento de Erros & Loading**
+  - Indicador de carregamento durante requisições.
+  - Mensagens de erro quando necessário.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **React** (Vite ou Create React App)
+- **JavaScript (ES6+)**
+- **CSS (estilização)**
+- **localStorage** (para persistência de favoritos)
+- **API TMDB ou OMDb**
+
+---
+
+## 📂 Estrutura do Projeto
+
+
+## ⚙️ Como Executar o Projeto
+
+1. **Clonar o repositório**
+   ```bash
+   1. git clone https://github.com/EduardoHenriqueSouza/API_IMDb.git
+   2. cd movie-app
+   3. npm install
+   4. npm run dev

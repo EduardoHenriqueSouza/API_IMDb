@@ -1,4 +1,3 @@
-/* Reset simples */
 * {
     margin: 0;
     padding: 0;
@@ -20,11 +19,11 @@ button {
     cursor: pointer;
 }
 
-/* Container principal */
+
 .container {
     max-width: 1200px;
-    margin: 0 auto; /* centraliza horizontalmente */
-    padding: 0 2rem; /* espaço interno nas laterais */
+    margin: 0 auto; 
+    padding: 0 2rem;
 }
 
 @media (min-width: 1200px) {
@@ -33,7 +32,6 @@ button {
     }
 }
 
-/* Formulário de busca */
 form {
     display: flex;
     justify-content: center;
@@ -62,16 +60,14 @@ button:hover {
     background-color: #1665b0;
 }
 
-/* Grid de filmes */
 .movies-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 2rem; /* espaçamento maior entre os filmes */
-    padding: 2rem; /* espaço interno do container */
-    justify-items: center; /* centraliza os cards */
+    gap: 2rem;
+    padding: 2rem;
+    justify-items: center;
 }
 
-/* Movie Card */
 .movie-card {
     background-color: #1e1e1e;
     border-radius: 0.5rem;
@@ -109,7 +105,6 @@ button:hover {
     border-radius: 0.25rem;
 }
 
-/* Movie Details */
 .movie-details {
     padding: 2rem;
     color: white;
@@ -135,7 +130,7 @@ button:hover {
 
 .movie-details .details-container {
     display: flex;
-    flex-wrap: wrap; /* garante responsividade */
+    flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
 }
@@ -176,7 +171,6 @@ button:hover {
     background-color: #b02a2a;
 }
 
-/* Títulos gerais */
 h2 {
     text-align: center;
     margin: 1rem 0;
@@ -184,7 +178,6 @@ h2 {
     color: #1f80e0;
 }
 
-/* Paginação */
 .pagination-container {
     display: flex;
     justify-content: center;

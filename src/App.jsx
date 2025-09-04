@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import MovieDetails from "./pages/MovieDetails";
 import Favorites from "./pages/Favorites";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/NavBar";
 
 const App = () => {
   return (
     <Router>
-      <Navbar /> {/* Agora o Link dentro da Navbar funciona */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movie/:id" element={<MovieDetails />} />
